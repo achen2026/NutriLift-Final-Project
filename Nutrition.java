@@ -1,20 +1,32 @@
 import javax.swing.*;
+import java.awt.*;
 
 public class Nutrition {
     public static void main(String[] args) {
-        // 1. Create the GUI window
         JFrame frame = new JFrame("NutriLift: Fitness & Nutrition Tracker");
-        frame.setSize(500, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(600, 500);
 
-        // 2. Instantiate the Exercise object (Requirement)
-        Exercise myLift = new Exercise("Bench Press", 3, 10, 135.0);
+        // Create the Tabbed System
+        JTabbedPane tabs = new JTabbedPane();
 
-        // 3. Print test data to the console
-        System.out.println("Object created: " + myLift.getExerciseName());
-        System.out.println("Total Volume: " + myLift.calculateVolume());
+        // 1. Workout Panel
+        JPanel workoutPanel = new JPanel();
+        workoutPanel.add(new JLabel("Exercise Name:"));
+        workoutPanel.add(new JTextField(10));
+        workoutPanel.add(new JButton("Save Lift"));
 
-        // 4. Show the window
+        // 2. Nutrition Panel
+        JPanel nutritionPanel = new JPanel();
+        nutritionPanel.add(new JLabel("Enter Weight (lbs):"));
+        nutritionPanel.add(new JTextField(5));
+        nutritionPanel.add(new JButton("Calculate Calories"));
+
+        // Add panels to tabs
+        tabs.addTab("Workouts", workoutPanel);
+        tabs.addTab("Nutrition", nutritionPanel);
+
+        frame.add(tabs);
         frame.setVisible(true);
     }
 }
