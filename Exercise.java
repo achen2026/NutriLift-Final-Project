@@ -1,6 +1,5 @@
 /**
- * Abstract base class for physical activities.
- * Demonstrates Inheritance and Polymorphism.
+ * BLUEPRINT: This is the parent class for all exercises.
  */
 public abstract class Exercise {
     protected String name;
@@ -16,7 +15,7 @@ public abstract class Exercise {
 }
 
 /**
- * Subclass for weightlifting exercises.
+ * CHILD CLASS: This is a specific type of exercise (Weightlifting).
  */
 class WeightLift extends Exercise {
     private int sets, reps;
@@ -31,7 +30,7 @@ class WeightLift extends Exercise {
 
     @Override
     public double getVolume() {
-        return sets * reps * weight;
+        return sets * reps * weight; // Logic to see how much total weight was moved
     }
 
     @Override
