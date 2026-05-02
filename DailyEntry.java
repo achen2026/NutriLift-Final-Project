@@ -1,24 +1,33 @@
 import java.util.ArrayList;
 
 public class DailyEntry {
-    // Attributes
-    private double dailyCalories;
-    private double proteinGoal;
-    private ArrayList<Exercise> workoutList;
+    private String date;
+    private ArrayList<Exercise> lifts = new ArrayList<>();
+    private double calorieGoal = 0;
+    private double caloriesConsumed = 0;
+    
+    // User Stats
+    private double weight, height;
+    private int age;
 
-    // Constructor
-    public DailyEntry() {
-        this.workoutList = new ArrayList<>();
-        this.dailyCalories = 0;
-        this.proteinGoal = 0;
+    public DailyEntry(String date) {
+        this.date = date;
     }
 
-    // Method to add a lift to the list
-    public void addExercise(Exercise lift) {
-        workoutList.add(lift);
+    public void setProfile(double w, double h, int a) {
+        this.weight = w;
+        this.height = h;
+        this.age = a;
     }
 
-    // Getters and Setters
-    public void setDailyCalories(double calories) { this.dailyCalories = calories; }
-    public double getDailyCalories() { return dailyCalories; }
+    public void setCalorieGoal(double goal) { this.calorieGoal = goal; }
+    public void addFood(double calories) { this.caloriesConsumed += calories; }
+    
+    public double getCaloriesConsumed() { return caloriesConsumed; }
+    public double getCalorieGoal() { return calorieGoal; }
+    public String getDate() { return date; }
+    
+    public double getRemaining() {
+        return calorieGoal - caloriesConsumed;
+    }
 }
